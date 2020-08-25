@@ -1,16 +1,16 @@
 @startuml
 
 class Product {
-    price: int
+    price: double
     name: String
 }
 
 interface DiscountCalculator {
-    +calculateDiscounts(products: List<Product>, totalDiscount: int): List<Integer>
+    +calculateDiscounts(products: List<Product>, totalDiscount: double): List<Double>
 }
 class App {
-    calculator: DiscountCalculator
     products: List<Product>
+    calculator: DiscountCalculator
     +readProductsFromInput(scanner: Scanner)
     +calculateAndPrintDiscounts()
 }
