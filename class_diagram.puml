@@ -1,0 +1,25 @@
+@startuml
+
+class Product {
+    price: int
+    name: String
+}
+
+interface DiscountCalculator {
+    +calculateDiscounts(products: List<Product>, totalDiscount: int): List<Integer>
+}
+class App {
+    calculator: DiscountCalculator
+    products: List<Product>
+    +readProductsFromInput(scanner: Scanner)
+    +calculateAndPrintDiscounts()
+}
+
+class ProportionalCalculator
+
+DiscountCalculator <|.. ProportionalCalculator
+App -> DiscountCalculator
+App *-- Product
+
+
+@enduml
