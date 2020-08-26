@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class ProportionalCalculatorTest {
@@ -10,15 +11,15 @@ public class ProportionalCalculatorTest {
     void shouldReturnFullDiscountForOneProduct() {
         // given
         List<Product> products = List.of(
-                new Product("Product1", 100)
+                new Product("Product1", new BigDecimal("100.00"))
         );
-        double totalDiscount = 50;
+        BigDecimal totalDiscount = new BigDecimal("50.00");
 
         // when
-        List<Double> discounts = calculator.calculateDiscounts(products, totalDiscount);
+        List<BigDecimal> discounts = calculator.calculateDiscounts(products, totalDiscount);
 
         // then
-        List<Double> expectedDiscounts = List.of(50.0);
+        List<BigDecimal> expectedDiscounts = List.of(new BigDecimal("50.00"));
         Assertions.assertIterableEquals(expectedDiscounts, discounts);
     }
 
@@ -26,16 +27,16 @@ public class ProportionalCalculatorTest {
     void shouldReturnExactProportionalDiscount() {
         // given
         List<Product> products = List.of(
-                new Product("Product1", 500),
-                new Product("Product2", 1500)
+                new Product("Product1", new BigDecimal("500.00")),
+                new Product("Product2", new BigDecimal("1500.00"))
         );
-        double totalDiscount = 100;
+        BigDecimal totalDiscount = new BigDecimal("100.00");
 
         // when
-        List<Double> discounts = calculator.calculateDiscounts(products, totalDiscount);
+        List<BigDecimal> discounts = calculator.calculateDiscounts(products, totalDiscount);
 
         // then
-        List<Double> expectedDiscounts = List.of(25.0, 75.0);
+        List<BigDecimal> expectedDiscounts = List.of(new BigDecimal("25.00"), new BigDecimal("75.00"));
         Assertions.assertIterableEquals(expectedDiscounts, discounts);
     }
 
@@ -43,16 +44,16 @@ public class ProportionalCalculatorTest {
     void shouldReturnPricesForTotalDiscountHigherThanSumOfAllProducts() {
         // given
         List<Product> products = List.of(
-                new Product("Product1", 500),
-                new Product("Product2", 1500)
+                new Product("Product1", new BigDecimal("500.00")),
+                new Product("Product2", new BigDecimal("1500.00"))
         );
-        double totalDiscount = 2500;
+        BigDecimal totalDiscount = new BigDecimal("2500.00");
 
         // when
-        List<Double> discounts = calculator.calculateDiscounts(products, totalDiscount);
+        List<BigDecimal> discounts = calculator.calculateDiscounts(products, totalDiscount);
 
         // then
-        List<Double> expectedDiscounts = List.of(500.0, 1500.0);
+        List<BigDecimal> expectedDiscounts = List.of(new BigDecimal("500.00"), new BigDecimal("1500.00"));
         Assertions.assertIterableEquals(expectedDiscounts, discounts);
     }
 
@@ -60,16 +61,16 @@ public class ProportionalCalculatorTest {
     void shouldReturnHigherDiscountForLastProductWhenCannotBeProportional() {
         // given
         List<Product> products = List.of(
-                new Product("Product1", 1000),
-                new Product("Product2", 1)
+                new Product("Product1", new BigDecimal("1000.00")),
+                new Product("Product2", new BigDecimal("1.00"))
         );
-        double totalDiscount = 0.01; // 1 grosz
+        BigDecimal totalDiscount = new BigDecimal("0.01"); // 1 grosz
 
         // when
-        List<Double> discounts = calculator.calculateDiscounts(products, totalDiscount);
+        List<BigDecimal> discounts = calculator.calculateDiscounts(products, totalDiscount);
 
         // then
-        List<Double> expectedDiscounts = List.of(0.0, 0.01);
+        List<BigDecimal> expectedDiscounts = List.of(new BigDecimal("0.00"), new BigDecimal("0.01"));
         Assertions.assertIterableEquals(expectedDiscounts, discounts);
     }
 
@@ -77,19 +78,24 @@ public class ProportionalCalculatorTest {
     void shouldReturnHigherDiscountForLastProductWhenCannotBeProportional2() {
         // given
         List<Product> products = List.of(
-                new Product("Product1", 400),
-                new Product("Product1", 800),
-                new Product("Product1", 1100),
-                new Product("Product1", 1000),
-                new Product("Product2", 500)
+                new Product("Product1", new BigDecimal("400.00")),
+                new Product("Product1", new BigDecimal("800.00")),
+                new Product("Product1", new BigDecimal("1100.00")),
+                new Product("Product1", new BigDecimal("1000.00")),
+                new Product("Product2", new BigDecimal("500.00"))
         );
-        double totalDiscount = 1;
+        BigDecimal totalDiscount = new BigDecimal("1.00");
 
         // when
-        List<Double> discounts = calculator.calculateDiscounts(products, totalDiscount);
+        List<BigDecimal> discounts = calculator.calculateDiscounts(products, totalDiscount);
 
         // then
-        List<Double> expectedDiscounts = List.of(0.10, 0.21, 0.28, 0.26, 0.15);
+        List<BigDecimal> expectedDiscounts = List.of(
+                new BigDecimal("0.10"),
+                new BigDecimal("0.21"),
+                new BigDecimal("0.28"),
+                new BigDecimal("0.26"),
+                new BigDecimal("0.15"));
         Assertions.assertIterableEquals(expectedDiscounts, discounts);
     }
 

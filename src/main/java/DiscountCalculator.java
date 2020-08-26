@@ -1,5 +1,6 @@
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface DiscountCalculator {
-    List<Double> calculateDiscounts(List<Product> products, double totalDiscount);
+    List<BigDecimal> calculateDiscounts(List<Product> products, BigDecimal totalDiscount);
 }

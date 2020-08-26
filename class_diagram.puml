@@ -1,12 +1,12 @@
 @startuml
 
 class Product {
-    price: double
+    price: BigDecimal
     name: String
 }
 
 interface DiscountCalculator {
-    +calculateDiscounts(products: List<Product>, totalDiscount: double): List<Double>
+    +calculateDiscounts(products: List<Product>, totalDiscount: BigDecimal): List<BigDecimal>
 }
 class App {
     products: List<Product>
