@@ -28,6 +28,7 @@ max. 5 produktów)
 
 ### Sposób użycia
 Do zbudowania programu potrzebny jest Maven (testowane na wersji 3.6.2).
+
 Budowanie i kompilacja:
 ```
 mvn install
