@@ -9,9 +9,10 @@ interface DiscountCalculator {
     +calculateDiscounts(products: List<Product>, totalDiscount: BigDecimal): List<BigDecimal>
 }
 class App {
-    products: List<Product>
     calculator: DiscountCalculator
-    +readProductsFromInput(scanner: Scanner)
+    products: List<Product>
+    totalDiscount: BigDecimal
+    +readProductsAndDiscountFromInput(scanner: Scanner)
     +calculateAndPrintDiscounts()
 }
 
