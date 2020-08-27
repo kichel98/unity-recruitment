@@ -56,9 +56,9 @@ public class App {
         scanner.nextLine();
         List<Product> products = new ArrayList<>();
         for (int i = 0; i < numberOfProducts; i++) {
-            System.out.println("Enter product name");
+            System.out.println("Enter product name:");
             String name = scanner.nextLine();
-            System.out.println("Enter product price");
+            System.out.println("Enter product price:");
             String price = replaceCommaWithDot(scanner.next(NUMBER_PATTERN));
             scanner.nextLine();
             Product product = new Product(name, new BigDecimal(price));
