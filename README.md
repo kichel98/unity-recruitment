@@ -1,4 +1,4 @@
-# unity-recrutiment
+# unity-recruitment
 Zadanie rekrutacyjne do firmy *Unity Group*
 
 ### Dodatkowe założenia
