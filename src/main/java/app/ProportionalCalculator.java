@@ -56,7 +56,7 @@ public class ProportionalCalculator implements DiscountCalculator {
         }
 
         // rounding mode should be consulted
-        BigDecimal productRatio = product.getPrice().divide(sumOfPrices, RATIO_SCALE, RoundingMode.HALF_EVEN);
+        BigDecimal productRatio = product.getPrice().divide(sumOfPrices, RATIO_SCALE, RoundingMode.FLOOR);
         BigDecimal proportionalDiscount = productRatio
                 .multiply(totalDiscount)
                 .setScale(DISCOUNT_SCALE, RoundingMode.FLOOR);

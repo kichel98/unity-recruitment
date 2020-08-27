@@ -49,13 +49,13 @@ public class App {
         System.out.println("Enter total amount of discount:");
         String totalDiscount = replaceCommaWithDot(scanner.next(NUMBER_PATTERN));
         System.out.println("Enter number of products:");
-        int size = scanner.nextInt();
-        if (size > MAX_NUMBER_OF_PRODUCTS) {
+        int numberOfProducts = scanner.nextInt();
+        if (numberOfProducts > MAX_NUMBER_OF_PRODUCTS) {
             throw new IllegalArgumentException();
         }
         scanner.nextLine();
         List<Product> products = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < numberOfProducts; i++) {
             System.out.println("Enter product name");
             String name = scanner.nextLine();
             System.out.println("Enter product price");

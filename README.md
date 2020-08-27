@@ -25,6 +25,8 @@ wg mnie należałoby się jeszcze skonsultować z klientem (tzn. sklepem) i potw
 oraz skalę dokładności użytą w ProportionalCalculator.
 - Dane są wprowadzane przez standardowe wejście i to w tym momencie są walidowane (max. 2 miejsca po przecinku,
 max. 5 produktów)
+- Jeżeli ktoś chce przetestować działanie samego ProportionalCalculator (bez walidacji danych wejściowych),
+warto spojrzeć na klasę testową ProportionalCalculatorTest.
 
 ### Sposób użycia
 Do zbudowania programu potrzebny jest Maven (testowane na wersji 3.6.2).
