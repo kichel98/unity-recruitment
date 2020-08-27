@@ -31,11 +31,11 @@ warto spojrzeć na klasę testową `ProportionalCalculatorTest`.
 ### Sposób użycia
 Do zbudowania programu potrzebny jest `Maven` (testowane na wersji 3.6.2).
 
-Budowanie i kompilacja:
+**Budowanie i kompilacja:**
 ```
 mvn install
 ```
-Uruchomienie:
+**Uruchomienie:**
 ```
 java -cp target/recruitment-1.0-SNAPSHOT.jar app.Main
 
